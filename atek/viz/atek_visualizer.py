@@ -513,7 +513,7 @@ class NativeAtekSampleVisualizer:
     ) -> None:
         """
         Project and plot 3D bounding box in camera view.
-        we first get all matrix needed for projection, then we calcuate the corner's position in camera view
+        we first get all matrix needed for projection, then we calculate the corner's position in camera view
         corner_camera = T_Device_Camera.inverse() @ (T_World_Device.inverse() @ corner)
         then we project the corner to image view using camera projection model
         """

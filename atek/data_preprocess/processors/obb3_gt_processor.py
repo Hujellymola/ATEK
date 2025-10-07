@@ -250,7 +250,7 @@ class Obb3GtProcessor:
                 bbox3d_dict[camera_label]["category_names"].append(cat_name)
                 bbox3d_dict[camera_label]["category_ids"][i_row] = cat_id
 
-                # fill in 3d aabb information, need to put the object coordindate to box center
+                # fill in 3d aabb information, need to put the object coordinate to box center
                 aabb_non_centered = single_bbox3d_data.aabb
                 T_world_object_non_centered = single_bbox3d_data.transform_scene_object
                 (object_dimensions, T_world_object) = self._center_object_bb3d(

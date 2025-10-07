@@ -128,8 +128,8 @@ class MpsSemiDenseProcessor:
             points_dist_std=dist_std_all,
             points_inv_dist_std=inv_dist_std_all,
             capture_timestamps_ns=capture_timestamps_ns,
-            points_volumn_max=self.vol_max,
-            points_volumn_min=self.vol_min,
+            points_volume_max=self.vol_max,
+            points_volume_min=self.vol_min,
         )
 
     def _load_semidense_global_points(

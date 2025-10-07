@@ -183,7 +183,7 @@ class MeanAveragePrecision3D(MeanAveragePrecision):
             (each dictionary corresponds to a single image):
             - ``boxes``: ``torch.FloatTensor`` of shape
                 [num_boxes, 8, 3] containing `num_boxes` detection boxes of the format
-                specified in the contructor. By default, this method expects
+                specified in the constructor. By default, this method expects
                 (4) +---------+. (5)
                     | ` .     |  ` .
                     | (0) +---+-----+ (1)
@@ -210,7 +210,7 @@ class MeanAveragePrecision3D(MeanAveragePrecision):
             (each dictionary corresponds to a single image):
             - ``boxes``: ``torch.FloatTensor`` of shape
                 [num_boxes, 8, 3] containing `num_boxes` ground truth boxes of the format
-                specified in the contructor.
+                specified in the constructor.
             - ``labels``: ``torch.IntTensor`` of shape
                 [num_boxes] containing 1-indexed ground truth classes for the boxes.
 

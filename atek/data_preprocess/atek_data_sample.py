@@ -83,7 +83,7 @@ class MultiFrameCameraData:
     def to_flatten_dict(self):
         """
         Transforms to a flattened dictionary, excluding attributes with None values.
-        Attributes are prefixed to ensure uniqueness and to maintain context. Keys are lower-cased to be consistent with WDS tariterator behavior
+        Attributes are prefixed to ensure uniqueness and to maintain context. Keys are lower-cased to be consistent with WDS traiterator behavior
         """
         # mfcd stands for MultiFrameCameraData, and need to further append camera_label to the prefix, so that the flattened key looks like "mfcd#camera-rgb+images".
         return _to_flatten_dict_impl(
@@ -154,8 +154,8 @@ class MpsSemiDensePointData:
         default_factory=list
     )  # Tensor has shape of [N] to represent points' inverse distance, List has length of num_frames
     capture_timestamps_ns: torch.Tensor = None  # [num_frames]
-    points_volumn_min: torch.Tensor = None  # [3], xyz
-    points_volumn_max: torch.Tensor = None  # [3], xyz
+    points_volume_min: torch.Tensor = None  # [3], xyz
+    points_volume_max: torch.Tensor = None  # [3], xyz
 
     def to_flatten_dict(self):
         # "msdpd" stands for MpsSemiDensePointData

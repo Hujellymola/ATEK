@@ -185,7 +185,7 @@ def update_from_single_sequence_obb3(
     result[f"precision@IoU{iou},Confidence{confidence_lower_threshold}"] = np.mean(
         all_precisions
     )
-    result[f"recall@IoU{iou},Cofidence{confidence_lower_threshold}"] = np.mean(
+    result[f"recall@IoU{iou},Confidence{confidence_lower_threshold}"] = np.mean(
         all_recalls
     )
 
@@ -328,7 +328,7 @@ def evaluate_obb3_over_a_dataset(
     result[f"precision@IoU{iou},Confidence{confidence_lower_threshold}"] = np.mean(
         all_precisions
     )
-    result[f"recall@IoU{iou},Cofidence{confidence_lower_threshold}"] = np.mean(
+    result[f"recall@IoU{iou},Confidence{confidence_lower_threshold}"] = np.mean(
         all_recalls
     )
     return result

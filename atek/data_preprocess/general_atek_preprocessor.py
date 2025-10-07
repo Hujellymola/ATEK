@@ -34,7 +34,7 @@ class GeneralAtekPreprocessor:
 
     def __init__(
         self,
-        sample_builder,  # Should be Union[ObbSampleBuilder, EfmSampleBuidler], but intentionally not specifying the type here for extensibility
+        sample_builder,  # Should be Union[ObbSampleBuilder, EfmSampleBuilder], but intentionally not specifying the type here for extensibility
         subsampler,  # Intentionally not specifying the type here for extensibility
         atek_wds_writer: Optional[AtekWdsWriter],
         atek_visualizer: Optional[NativeAtekSampleVisualizer],

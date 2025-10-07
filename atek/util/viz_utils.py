@@ -171,7 +171,7 @@ def obtain_visible_line_segs_of_obb3(
         image_height=image_height,
     )
 
-    # Aggreagate visible line segments along with colors
+    # Aggregate visible line segments along with colors
     all_visible_line_segs = []
     all_seg_colors = []
     plotting_colors = [

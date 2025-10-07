@@ -80,7 +80,7 @@ def convert_atek_sample_dict_to_wds_dict(
         else:
             raise ValueError(f"Unsupported type {type(atek_value)} in ATEK WDS writer.")
 
-    # Semidense point data needs to be flattended from List[Tensor (N, 3)] to a Tensor (M, 3) in order to be writable to WDS.
+    # Semidense point data needs to be flattened from List[Tensor (N, 3)] to a Tensor (M, 3) in order to be writable to WDS.
     # Therefore we store a `stacked_points_world` (Tensor [M, 3]) along with `points_world_lengths` (Tensor [num_frames]),
     # in order to unpack the stacked tensor later. Same for `points_inv_dist_std`.
     # obtain the "lengths" of each tensor in list.

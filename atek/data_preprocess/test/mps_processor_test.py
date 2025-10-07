@@ -148,10 +148,10 @@ class MpsSemiDenseProcessorTest(unittest.TestCase):
         )
 
         # check vol max and min
-        self.assertTrue(isinstance(maybe_result.points_volumn_min, torch.Tensor))
-        self.assertEqual(maybe_result.points_volumn_min.shape, torch.Size([3]))
-        self.assertTrue(isinstance(maybe_result.points_volumn_max, torch.Tensor))
-        self.assertEqual(maybe_result.points_volumn_max.shape, torch.Size([3]))
+        self.assertTrue(isinstance(maybe_result.points_volume_min, torch.Tensor))
+        self.assertEqual(maybe_result.points_volume_min.shape, torch.Size([3]))
+        self.assertTrue(isinstance(maybe_result.points_volume_max, torch.Tensor))
+        self.assertEqual(maybe_result.points_volume_max.shape, torch.Size([3]))
 
 
 class MpsOnlineCalibProcessorTest(unittest.TestCase):
@@ -248,7 +248,7 @@ class MpsOnlineCalibProcessorTest(unittest.TestCase):
             )
 
     def _test_projection_params(self, projection_params):
-        projection_params_expect_tesnor = torch.tensor(
+        projection_params_expect_tensor = torch.tensor(
             [
                 [
                     [
@@ -309,7 +309,7 @@ class MpsOnlineCalibProcessorTest(unittest.TestCase):
         self.assertTrue(
             torch.allclose(
                 projection_params,
-                projection_params_expect_tesnor,
+                projection_params_expect_tensor,
                 atol=1e-6,
             )
         )
