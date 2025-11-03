@@ -130,7 +130,7 @@ def load_yaml_and_extract_tar_list(yaml_path: str) -> List[str]:
     urls_or_paths = []
     yaml_dir = os.path.dirname(yaml_path)
     sequences = data.get("tars", {})
-    for sequence_name, sequence_paths_or_urls in sequences.items():
+    for sequence_paths_or_urls in sequences.values():
         for single_sequence_path_or_url in sequence_paths_or_urls:
             if urlparse(single_sequence_path_or_url).scheme in ["http", "https"]:
                 urls_or_paths.append(single_sequence_path_or_url)
