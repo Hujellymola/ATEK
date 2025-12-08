@@ -381,7 +381,7 @@ class NativeAtekSampleVisualizer:
         bb3d_labels = []
 
         # Loop over all cameras
-        for camera_label, per_cam_dict in gt_dict.items():
+        for per_cam_dict in gt_dict.values():
             # Skip if this camera observation is empty
             if not per_cam_dict:
                 continue
