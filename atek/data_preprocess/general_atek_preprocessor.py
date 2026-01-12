@@ -65,13 +65,13 @@ class GeneralAtekPreprocessor:
         """
         # Check if the WDS writer and visualizer are initialized
         if write_to_wds_flag:
-            assert (
-                self.atek_wds_writer is not None
-            ), "AtekWdsWriter is not initialized, cannot write to WDS"
+            assert self.atek_wds_writer is not None, (
+                "AtekWdsWriter is not initialized, cannot write to WDS"
+            )
         if viz_flag:
-            assert (
-                self.atek_visualizer is not None
-            ), "AtekVisualizer is not initialized, cannot visualize samples"
+            assert self.atek_visualizer is not None, (
+                "AtekVisualizer is not initialized, cannot visualize samples"
+            )
 
         # Loop over all samples, check for validity, and write them to WDS and visualize them if specified
         num_samples = 0

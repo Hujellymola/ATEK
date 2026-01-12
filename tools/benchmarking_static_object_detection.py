@@ -22,7 +22,6 @@ import os
 
 import numpy as np
 import torch
-
 from atek.evaluation.static_object_detection.eval_obb3 import (
     evaluate_obb3_for_single_csv_pair,
     evaluate_obb3_over_a_dataset,
@@ -96,9 +95,9 @@ def main() -> None:
         )
         logger.info(json.dumps(metrics, indent=2, sort_keys=True))
     else:
-        assert (
-            args.pred_csv is not None and args.gt_csv is not None
-        ), "Either --input-folder or (--pred-csv+--gt-csv) must be provided"
+        assert args.pred_csv is not None and args.gt_csv is not None, (
+            "Either --input-folder or (--pred-csv+--gt-csv) must be provided"
+        )
         logger.info(f"Running file-level eval on {args.pred_csv} and {args.gt_csv}")
         metrics = evaluate_obb3_for_single_csv_pair(
             pred_csv=args.pred_csv,

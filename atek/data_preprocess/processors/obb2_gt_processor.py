@@ -17,12 +17,9 @@ from typing import Callable, Dict, Optional, Tuple
 
 import numpy as np
 import torch
-
 from atek.util.file_io_utils import load_category_mapping_from_csv
-
 from omegaconf.omegaconf import DictConfig
 from projectaria_tools.core.calibration import CameraCalibration
-
 from projectaria_tools.projects.adt import (
     AriaDigitalTwinDataPaths,
     AriaDigitalTwinDataProvider,
@@ -265,9 +262,9 @@ class Obb2GtProcessor:
                     self._apply_transforms_to_bbox2d(cam_label, bbox2d_data.box_range)
                 )
                 i_row += 1
-            assert (
-                i_row == num_visible_instances
-            ), f"camera {cam_label} filled number {i_row} != num of instances {num_visible_instances}, tensor contains initialized values, unsafe hence abort"
+            assert i_row == num_visible_instances, (
+                f"camera {cam_label} filled number {i_row} != num of instances {num_visible_instances}, tensor contains initialized values, unsafe hence abort"
+            )
 
         # At least one camera should have valid data, or will return None
         valid_data_flag = False

@@ -15,12 +15,10 @@
 import copy
 import logging
 import os
-
 from typing import Dict, List, Tuple
 
 import torch
 import webdataset as wds
-
 from atek.data_preprocess.atek_data_sample import AtekDataSample
 from atek.util.file_io_utils import separate_tensors_from_dict
 from atek.util.tensor_utils import concat_list_of_tensors
@@ -94,9 +92,9 @@ def convert_atek_sample_dict_to_wds_dict(
             if len_tensors is None:
                 len_tensors = current_len_tensors.clone()
             else:
-                assert torch.allclose(
-                    len_tensors, current_len_tensors, atol=1
-                ), f"The lengths for all semidense points data types should be the same! Instead got\n {current_len_tensors} in {semidense_key} vs \n {len_tensors}"
+                assert torch.allclose(len_tensors, current_len_tensors, atol=1), (
+                    f"The lengths for all semidense points data types should be the same! Instead got\n {current_len_tensors} in {semidense_key} vs \n {len_tensors}"
+                )
     if len_tensors is not None:
         wds_dict["msdpd#points_world_lengths.pth"] = len_tensors
 

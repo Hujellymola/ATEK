@@ -19,7 +19,6 @@ from typing import Dict, List, Optional
 
 import rerun as rr
 import torch
-
 from atek.data_loaders.cubercnn_model_adaptor import CubeRCNNModelAdaptor
 from atek.util.tensor_utils import filter_obbs_by_confidence_all_cams
 from atek.viz.atek_visualizer import NativeAtekSampleVisualizer

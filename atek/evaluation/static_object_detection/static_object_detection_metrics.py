@@ -18,13 +18,11 @@ from time import time
 from typing import Dict, List, Optional, Tuple
 
 import torch
-
 from atek.evaluation.static_object_detection.eval_obb3_metrics_utils import (
     bb3_valid,
     box3d_overlap_wrapper,
     box3d_volume,
 )
-
 from torchmetrics.detection.mean_ap import (
     _fix_empty_tensors,
     BaseMetricResults,
@@ -127,7 +125,7 @@ class AtekObb3Metrics(torch.nn.Module):
         metrics_3d_result = self.metric_3d.compute(self.sem_id_to_name)
 
         t1 = time()
-        logger.info(f"DONE Computing 3D obb metric in {t1-t0} seconds")
+        logger.info(f"DONE Computing 3D obb metric in {t1 - t0} seconds")
 
         for metric_name, val in metrics_3d_result.items():
             metrics[f"{metric_name}_3D"] = val

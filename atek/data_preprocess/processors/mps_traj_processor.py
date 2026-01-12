@@ -16,11 +16,8 @@ import logging
 from typing import List, Optional, Tuple
 
 import numpy as np
-
 import torch
-
 from omegaconf.omegaconf import DictConfig
-
 from projectaria_tools.core import mps
 from projectaria_tools.core.sensor_data import TimeQueryOptions  # @manual
 

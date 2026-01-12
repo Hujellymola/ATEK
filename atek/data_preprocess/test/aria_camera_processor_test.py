@@ -16,7 +16,6 @@ import os
 import unittest
 
 import torch
-
 from atek.data_preprocess.processors.aria_camera_processor import AriaCameraProcessor
 from omegaconf import OmegaConf
 

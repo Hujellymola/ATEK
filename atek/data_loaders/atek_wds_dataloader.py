@@ -18,10 +18,8 @@ from functools import partial
 from typing import Any, Callable, Dict, List, Optional
 
 import numpy as np
-
 import torch
 import webdataset as wds
-
 from atek.util.file_io_utils import merge_tensors_into_dict
 from atek.util.tensor_utils import unpack_list_of_tensors
 

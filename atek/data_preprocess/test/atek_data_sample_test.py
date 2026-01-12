@@ -16,7 +16,6 @@
 import unittest
 
 import torch
-
 from atek.data_preprocess.atek_data_sample import (
     AtekDataSample,
     MpsOnlineCalibData,

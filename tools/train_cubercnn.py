@@ -26,10 +26,8 @@ import numpy as np
 import torch
 import torch.distributed as dist
 import yaml
-
 from atek.data_loaders.cubercnn_model_adaptor import load_atek_wds_dataset_as_cubercnn
 from atek.util.file_io_utils import load_yaml_and_extract_tar_list
-
 from cubercnn.config import get_cfg_defaults
 from cubercnn.modeling.backbone import build_dla_from_vision_fpn_backbone
 from cubercnn.modeling.meta_arch import build_model

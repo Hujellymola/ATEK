@@ -18,7 +18,6 @@ from dataclasses import fields
 from typing import Dict, List, Optional
 
 import torch
-
 from atek.data_preprocess.atek_data_sample import AtekDataSample, MpsTrajData
 from atek.data_preprocess.processors.aria_camera_processor import AriaCameraProcessor
 from atek.data_preprocess.processors.depth_image_processor import DepthImageProcessor
@@ -127,14 +126,14 @@ class EfmSampleBuilder:
             and conf.rgb_depth.selected
             and os.path.exists(self.depth_vrs_file)
         ):
-            assert (
-                self.depth_vrs_file != ""
-            ), "need to specify depth vrs file to use depth processor"
+            assert self.depth_vrs_file != "", (
+                "need to specify depth vrs file to use depth processor"
+            )
 
             # Obtain image transformations from rgb AriaCameraProcessor, where interpolation needs to be exactly set to NEAREST
-            assert (
-                "camera-rgb" in processors
-            ), "rgb_depth depends on camera_rgb processor to obtain camera calibration"
+            assert "camera-rgb" in processors, (
+                "rgb_depth depends on camera_rgb processor to obtain camera calibration"
+            )
             depth_image_transform = processors["camera-rgb"].get_image_transform(
                 rescale_interpolation=InterpolationMode.NEAREST
             )

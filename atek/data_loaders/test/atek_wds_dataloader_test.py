@@ -25,7 +25,6 @@ from atek.data_preprocess.subsampling_lib.temporal_subsampler import (
     CameraTemporalSubsampler,
 )
 from atek.util.tensor_utils import check_dicts_same_w_tensors
-
 from omegaconf import OmegaConf
 
 

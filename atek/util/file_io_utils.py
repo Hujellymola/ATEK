@@ -43,9 +43,9 @@ def load_category_mapping_from_csv(
         reader = csv.reader(f)
         header = next(reader)
         assert len(header) == 3, "Expected 3 columns in the category mapping csv file"
-        assert (
-            header[1] == "ATEK Category Name" and header[2] == "ATEK Category Id"
-        ), f"Column names must be  ATEK Category Name and ATEK Category Id, but got {header[1]} and {header[2]} instead."
+        assert header[1] == "ATEK Category Name" and header[2] == "ATEK Category Id", (
+            f"Column names must be  ATEK Category Name and ATEK Category Id, but got {header[1]} and {header[2]} instead."
+        )
         category_mapping = {rows[0]: (rows[1], rows[2]) for rows in reader}
     return category_mapping
 

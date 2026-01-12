@@ -15,12 +15,10 @@
 from typing import List, Optional
 
 import torch
-
 from atek.data_loaders.atek_wds_dataloader import (
     load_atek_wds_dataset,
     simple_list_collation_fn,
 )
-
 from webdataset.filters import pipelinefilter
 
 

@@ -30,7 +30,6 @@ from atek.data_preprocess.atek_data_sample import (
 from atek.util.tensor_utils import compute_bbox_corners_in_world
 from atek.util.viz_utils import box_points_to_lines, obtain_visible_line_segs_of_obb3
 from omegaconf.omegaconf import DictConfig
-
 from projectaria_tools.core.calibration import CameraModelType, CameraProjection
 from projectaria_tools.core.sophus import SE3
 from projectaria_tools.utils.rerun_helpers import ToTransform3D
@@ -147,9 +146,9 @@ class NativeAtekSampleVisualizer:
         Plot an ATEK data sample instance in ReRun, including camera data, mps trajectory
         and semidense points data, but no GT data.
         """
-        assert (
-            atek_data_sample is not None
-        ), "ATEK data sample is empty in plot_atek_sample"
+        assert atek_data_sample is not None, (
+            "ATEK data sample is empty in plot_atek_sample"
+        )
 
         if atek_data_sample.camera_rgb:
             self.plot_multi_frame_camera_data(atek_data_sample.camera_rgb)
@@ -466,9 +465,9 @@ class NativeAtekSampleVisualizer:
 
         # we only support single timestamp for now
 
-        assert len(object_dimensions) == len(
-            Ts_World_Object
-        ), "The length of object_dimensions and T_World_Object should be the same"
+        assert len(object_dimensions) == len(Ts_World_Object), (
+            "The length of object_dimensions and T_World_Object should be the same"
+        )
 
         rr.set_time_seconds("frame_time_s", timestamp_ns * 1e-9)
         idx = 0  # id for the box rerun is drawing
@@ -536,9 +535,9 @@ class NativeAtekSampleVisualizer:
         image_height = camera_data.images.shape[3]
 
         # Loop over all timestamps
-        assert len(mps_traj_data.Ts_World_Device) == len(
-            all_timestamp_ns
-        ), "timestamp count in camera data and traj does not match."
+        assert len(mps_traj_data.Ts_World_Device) == len(all_timestamp_ns), (
+            "timestamp count in camera data and traj does not match."
+        )
 
         for i_time in range(len(all_timestamp_ns)):
             T_World_Device = SE3.from_matrix3x4(mps_traj_data.Ts_World_Device[i_time])

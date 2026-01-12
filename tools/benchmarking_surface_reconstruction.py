@@ -25,7 +25,6 @@ import torch
 from atek.evaluation.static_object_detection.eval_obb3_metrics_utils import (
     print_obb3_metrics_to_logger,
 )
-
 from atek.evaluation.surface_reconstruction.surface_reconstruction_metrics import (
     evaluate_mesh_over_a_dataset,
     evaluate_single_mesh_pair,
@@ -83,9 +82,9 @@ def main() -> None:
         )
         logger.info(json.dumps(metrics, indent=2, sort_keys=True))
     else:
-        assert (
-            args.pred_mesh is not None and args.gt_mesh is not None
-        ), "Either --input-folder or (--pred-mesh+--gt-mesh) must be provided"
+        assert args.pred_mesh is not None and args.gt_mesh is not None, (
+            "Either --input-folder or (--pred-mesh+--gt-mesh) must be provided"
+        )
 
         logger.info(f"Running file-level eval on {args.pred_mesh} and {args.gt_mesh}")
         metrics, _, _ = evaluate_single_mesh_pair(

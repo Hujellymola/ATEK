@@ -15,15 +15,11 @@
 from typing import Dict, List, Optional
 
 import numpy as np
-
 import torch
-
 import webdataset as wds
-
 from atek.data_loaders.atek_wds_dataloader import load_atek_wds_dataset
 from atek.util.atek_constants import ATEK_CATEGORY_ID_TO_NAME, ATEK_CATEGORY_NAME_TO_ID
 from projectaria_tools.core.sophus import SE3
-
 from webdataset.filters import pipelinefilter
 
 
@@ -81,9 +77,9 @@ class CubeRCNNModelAdaptor:
 
         # calculate K-matrix
         camera_model = atek_wds_sample["camera_model"]
-        assert (
-            camera_model == "CameraModelType.LINEAR"
-        ), f"Only linear camera model supported in CubeRCNN model, this data has {camera_model} instead."
+        assert camera_model == "CameraModelType.LINEAR", (
+            f"Only linear camera model supported in CubeRCNN model, this data has {camera_model} instead."
+        )
         k_matrix = torch.zeros((3, 3), dtype=torch.float32)
         params = atek_wds_sample["camera_params"]
         k_matrix[0, 0], k_matrix[1, 1] = params[0], params[1]

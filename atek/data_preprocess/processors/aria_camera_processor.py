@@ -16,14 +16,12 @@ import logging
 from typing import Callable, List, Optional, Tuple
 
 import torch
-
 from atek.data_preprocess.atek_data_sample import MultiFrameCameraData
 from atek.util.camera_calib_utils import (
     rescale_pixel_coords,
     rotate_pixel_coords_cw90,
     undistort_pixel_coords,
 )
-
 from omegaconf.omegaconf import DictConfig
 from PIL import Image
 from projectaria_tools.core import calibration, data_provider
@@ -97,13 +95,13 @@ class AriaCameraProcessor:
         Returns: vrs_data_provider, stream_id
         """
         provider = data_provider.create_vrs_data_provider(self.video_vrs)
-        assert (
-            provider is not None
-        ), f"Cannot open video.vrs file under path [{self.video_vrs}]"
+        assert provider is not None, (
+            f"Cannot open video.vrs file under path [{self.video_vrs}]"
+        )
         stream_id = provider.get_stream_id_from_label(self.camera_label)
-        assert (
-            stream_id is not None
-        ), f"Cannot find stream id for camera [{self.camera_label}]"
+        assert stream_id is not None, (
+            f"Cannot find stream id for camera [{self.camera_label}]"
+        )
 
         return provider, stream_id
 
@@ -121,9 +119,9 @@ class AriaCameraProcessor:
         """
         # obtain the camera calibration from vrs
         stream_sensor_calib = self.data_provider.get_sensor_calibration(self.stream_id)
-        assert (
-            stream_sensor_calib is not None
-        ), f"Can not get the sensor calibration for {self.stream_id} in vrs {self.video_vrs}"
+        assert stream_sensor_calib is not None, (
+            f"Can not get the sensor calibration for {self.stream_id} in vrs {self.video_vrs}"
+        )
         camera_calib = stream_sensor_calib.camera_calibration()
         self.original_camera_calib = camera_calib
 

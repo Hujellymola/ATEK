@@ -19,10 +19,8 @@ from typing import List, Optional, Tuple, Union
 
 import numpy as np
 import pandas as pd
-
 import torch
 from atek.data_preprocess.atek_data_sample import MpsSemiDensePointData
-
 from omegaconf.omegaconf import DictConfig
 
 logger = logging.getLogger(__name__)
@@ -56,8 +54,8 @@ class MpsSemiDenseProcessor:
         time_3 = time.time()
 
         logger.info(
-            f"loading semidense points takes {time_1-time_0} seconds, observations takes {time_2-time_1} seconds"
-            f"and computing semidense volume takes {time_3-time_2} seconds"
+            f"loading semidense points takes {time_1 - time_0} seconds, observations takes {time_2 - time_1} seconds"
+            f"and computing semidense volume takes {time_3 - time_2} seconds"
         )
 
     def get_semidense_points_by_timestamps_ns(
@@ -278,7 +276,7 @@ class MpsSemiDenseProcessor:
             vox_dim = (self.vol_max - self.vol_min) / voxel_size
             est_num_voxels = vox_dim[0] * vox_dim[1] * vox_dim[2]
             if est_num_voxels < max_voxels:
-                print(f"compute global bounding volume as {q} to {1-q} quantile")
+                print(f"compute global bounding volume as {q} to {1 - q} quantile")
                 break
         if est_num_voxels > max_voxels:
             print("Warning: scene volume too large for TSDF fusion")

@@ -16,7 +16,6 @@
 
 import logging
 import os
-
 from typing import Any, Callable, Dict, Optional
 
 from atek.data_loaders.atek_wds_dataloader import (
@@ -25,7 +24,6 @@ from atek.data_loaders.atek_wds_dataloader import (
 )
 from atek.data_loaders.cubercnn_model_adaptor import CubeRCNNModelAdaptor
 from atek.data_preprocess.atek_data_sample import AtekDataSample
-
 from atek.data_preprocess.sample_builders.obb_sample_builder import ObbSampleBuilder
 from atek.data_preprocess.subsampling_lib.temporal_subsampler import (
     CameraTemporalSubsampler,

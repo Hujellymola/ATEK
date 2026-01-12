@@ -43,9 +43,9 @@ class CameraTemporalSubsampler:
 
         # get timestamps associated with main camera
         main_stream_id = vrs_provider.get_stream_id_from_label(conf.main_camera_label)
-        assert (
-            main_stream_id is not None
-        ), f"Cannot find stream id for {conf.main_camera_label} in {vrs_file}"
+        assert main_stream_id is not None, (
+            f"Cannot find stream id for {conf.main_camera_label} in {vrs_file}"
+        )
         time_domain = getattr(TimeDomain, conf.time_domain)
         main_camera_timestamps = vrs_provider.get_timestamps_ns(
             main_stream_id, time_domain

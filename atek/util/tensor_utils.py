@@ -15,7 +15,6 @@
 from typing import Dict, List, Optional, Tuple
 
 import numpy as np
-
 import torch
 from projectaria_tools.core.sophus import SE3
 
@@ -111,10 +110,10 @@ def unpack_list_of_tensors(
     """
     Unpack a stacked tensor of (N, 3) back to a list of tensors of (_, 3), according to each subtensor's lengths
     """
-    assert (
-        lengths_of_tensors.sum().item() == stacked_tensor.size(0)
-    ), "The lengths_of_tensors do not sum to the length of the stacked tensor, {} vs {}".format(
-        lengths_of_tensors.sum().item(), stacked_tensor.size(0)
+    assert lengths_of_tensors.sum().item() == stacked_tensor.size(0), (
+        "The lengths_of_tensors do not sum to the length of the stacked tensor, {} vs {}".format(
+            lengths_of_tensors.sum().item(), stacked_tensor.size(0)
+        )
     )
 
     tensor_list = []

@@ -18,7 +18,6 @@ from dataclasses import dataclass
 from typing import Dict, Tuple
 
 import torch
-
 from pytorch3d.ops.iou_box3d import (
     _box3d_overlap,
     _box_planes,

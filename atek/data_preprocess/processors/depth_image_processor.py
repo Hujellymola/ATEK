@@ -16,11 +16,8 @@ import logging
 from typing import Callable, List, Optional, Tuple
 
 import numpy as np
-
 import torch
-
 from atek.data_preprocess.atek_data_sample import MultiFrameCameraData
-
 from omegaconf.omegaconf import DictConfig
 from projectaria_tools.core import calibration, data_provider
 from projectaria_tools.core.calibration import CameraCalibration
@@ -75,18 +72,18 @@ class DepthImageProcessor:
         Returns: vrs_data_provider, stream_id
         """
         provider = data_provider.create_vrs_data_provider(self.depth_vrs)
-        assert (
-            provider is not None
-        ), f"Cannot open depth vrs under path [{self.depth_vrs}]"
+        assert provider is not None, (
+            f"Cannot open depth vrs under path [{self.depth_vrs}]"
+        )
 
         # Find depth stream in provider
         result_stream_id = None
         # If conf specified `depth_stream_id`, use it directly
         if "depth_stream_id" in self.conf:
             result_stream_id = StreamId(self.conf.depth_stream_id)
-            assert (
-                result_stream_id in provider.get_all_streams()
-            ), f"Specified stream id {result_stream_id} is not in vrs {self.depth_vrs}'s stream id list: {provider.get_all_streams()}"
+            assert result_stream_id in provider.get_all_streams(), (
+                f"Specified stream id {result_stream_id} is not in vrs {self.depth_vrs}'s stream id list: {provider.get_all_streams()}"
+            )
         # If conf specified `depth_stream_type_id`, check if any of the existing streams match the type id, as $TYPE_ID-*
         elif "depth_stream_type_id" in self.conf:
             for stream_id in provider.get_all_streams():
@@ -99,9 +96,9 @@ class DepthImageProcessor:
 
                     break
             # check valid stream id is found
-            assert (
-                result_stream_id is not None
-            ), f"Specified stream type id {self.conf.depth_stream_type_id} is not in vrs {self.depth_vrs}'s stream id list: {provider.get_all_streams()}"
+            assert result_stream_id is not None, (
+                f"Specified stream type id {self.conf.depth_stream_type_id} is not in vrs {self.depth_vrs}'s stream id list: {provider.get_all_streams()}"
+            )
         # If none of the above
         else:
             raise ValueError("No depth stream id or type id is specified in config")
@@ -145,9 +142,9 @@ class DepthImageProcessor:
             z_depth_images.shape[2],
             z_depth_images.shape[3],
         )
-        assert (
-            C == 1
-        ), f"Only support single channel depth image, got {C} channels instead"
+        assert C == 1, (
+            f"Only support single channel depth image, got {C} channels instead"
+        )
         distance_images = torch.zeros_like(z_depth_images, dtype=torch.float32)
 
         # Loop over all frames

@@ -25,9 +25,7 @@ from typing import Dict
 import torch
 import tqdm
 import yaml
-
 from atek.data_loaders.atek_wds_dataloader import load_atek_wds_dataset
-
 from atek.data_loaders.cubercnn_model_adaptor import (
     cubercnn_collation_fn,
     CubeRCNNModelAdaptor,
@@ -42,16 +40,13 @@ from atek.util.file_io_utils import (
     load_category_mapping_from_csv,
     load_yaml_and_extract_tar_list,
 )
-
 from atek.viz.cubercnn_visualizer import CubercnnVisualizer
-
 from cubercnn.config import get_cfg_defaults
 from cubercnn.modeling.backbone import build_dla_from_vision_fpn_backbone  # noqa
 from cubercnn.modeling.meta_arch import build_model  # noqa
 from detectron2.checkpoint import DetectionCheckpointer
 from detectron2.config import get_cfg
 from detectron2.engine import launch
-
 from omegaconf import DictConfig, OmegaConf
 
 

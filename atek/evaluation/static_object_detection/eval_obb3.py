@@ -19,7 +19,6 @@ import os
 from typing import Dict, List, Optional, Tuple
 
 import numpy as np
-
 import torch
 from atek.evaluation.static_object_detection.eval_obb3_metrics_utils import (
     prec_recall_bb3,
@@ -125,9 +124,9 @@ def update_from_single_sequence_obb3(
 
         # check if the preds contain confidence scores
         confidence_score = pred_obb_dict[time]["confidence_scores"].squeeze()
-        assert not torch.all(
-            confidence_score.eq(-1.0)
-        ), "the obbs don't contain valid confidence scores for mAP calculation."
+        assert not torch.all(confidence_score.eq(-1.0)), (
+            "the obbs don't contain valid confidence scores for mAP calculation."
+        )
 
         # TODO: check paddings are removed for EFM data
 

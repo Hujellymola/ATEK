@@ -18,11 +18,8 @@ from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 import torch
-
 from atek.util.file_io_utils import load_category_mapping_from_csv
-
 from omegaconf.omegaconf import DictConfig
-
 from projectaria_tools.core.sophus import SE3
 from projectaria_tools.core.stream_id import StreamId
 from projectaria_tools.projects.adt import (

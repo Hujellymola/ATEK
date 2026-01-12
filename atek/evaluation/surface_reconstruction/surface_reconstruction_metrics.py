@@ -19,9 +19,7 @@ from typing import Dict, Optional
 
 import numpy as np
 import torch
-
 import trimesh
-
 from atek.evaluation.surface_reconstruction.surface_reconstruction_utils import (
     compute_pts_to_mesh_dist,
     correct_adt_mesh_gravity,
