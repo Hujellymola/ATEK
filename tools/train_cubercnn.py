@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import csv
 import json
 import logging
 import os
@@ -29,7 +28,6 @@ import yaml
 from atek.data_loaders.cubercnn_model_adaptor import load_atek_wds_dataset_as_cubercnn
 from atek.util.file_io_utils import load_yaml_and_extract_tar_list
 from cubercnn.config import get_cfg_defaults
-from cubercnn.modeling.backbone import build_dla_from_vision_fpn_backbone
 from cubercnn.modeling.meta_arch import build_model
 from cubercnn.solver import build_optimizer, freeze_bn, PeriodicCheckpointerOnlyOne
 from detectron2.checkpoint import DetectionCheckpointer
