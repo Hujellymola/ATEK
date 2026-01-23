@@ -16,7 +16,6 @@ from dataclasses import asdict, dataclass, field, fields, is_dataclass
 from typing import Any, Dict, List, Optional
 
 import torch
-from atek.util.tensor_utils import concat_list_of_tensors
 
 
 def _to_flatten_dict_impl(dataclass_instance, dataclass_prefix):

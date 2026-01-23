@@ -13,7 +13,7 @@
 # limitations under the License.
 
 import logging
-from typing import Callable, List, Optional, Tuple
+from typing import Callable, List, Optional
 
 import torch
 from atek.data_preprocess.atek_data_sample import MultiFrameCameraData
@@ -23,7 +23,6 @@ from atek.util.camera_calib_utils import (
     undistort_pixel_coords,
 )
 from omegaconf.omegaconf import DictConfig
-from PIL import Image
 from projectaria_tools.core import calibration, data_provider
 from projectaria_tools.core.sensor_data import TimeDomain, TimeQueryOptions  # @manual
 from torchvision.transforms import InterpolationMode, v2

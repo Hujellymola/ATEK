@@ -18,7 +18,7 @@ import numpy as np
 import torch
 import webdataset as wds
 from atek.data_loaders.atek_wds_dataloader import load_atek_wds_dataset
-from atek.util.atek_constants import ATEK_CATEGORY_ID_TO_NAME, ATEK_CATEGORY_NAME_TO_ID
+from atek.util.atek_constants import ATEK_CATEGORY_ID_TO_NAME
 from projectaria_tools.core.sophus import SE3
 from webdataset.filters import pipelinefilter
 
