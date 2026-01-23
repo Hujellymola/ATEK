@@ -13,13 +13,11 @@
 # limitations under the License.
 
 import logging
-from dataclasses import dataclass
 from time import time
 from typing import Dict, List, Optional, Tuple
 
 import torch
 from atek.evaluation.static_object_detection.eval_obb3_metrics_utils import (
-    bb3_valid,
     box3d_overlap_wrapper,
     box3d_volume,
 )

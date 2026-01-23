@@ -15,7 +15,7 @@
 import copy
 import csv
 import os
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Tuple
 from urllib.parse import urlparse
 
 import torch

@@ -13,18 +13,12 @@
 # limitations under the License.
 
 import argparse
-import json
 import logging
 import os
-import sys
 import time
-from copy import deepcopy
-from dataclasses import fields
-from typing import Dict
 
 import torch
 import tqdm
-import yaml
 from atek.data_loaders.atek_wds_dataloader import load_atek_wds_dataset
 from atek.data_loaders.cubercnn_model_adaptor import (
     cubercnn_collation_fn,
@@ -35,11 +29,7 @@ from atek.data_preprocess.atek_data_sample import (
     create_atek_data_sample_from_flatten_dict,
 )
 from atek.evaluation.static_object_detection.obb3_csv_io import GroupAtekObb3CsvWriter
-from atek.util.atek_constants import ATEK_CATEGORY_NAME_TO_ID
-from atek.util.file_io_utils import (
-    load_category_mapping_from_csv,
-    load_yaml_and_extract_tar_list,
-)
+from atek.util.file_io_utils import load_yaml_and_extract_tar_list
 from atek.viz.cubercnn_visualizer import CubercnnVisualizer
 from cubercnn.config import get_cfg_defaults
 from cubercnn.modeling.backbone import build_dla_from_vision_fpn_backbone  # noqa
@@ -47,7 +37,7 @@ from cubercnn.modeling.meta_arch import build_model  # noqa
 from detectron2.checkpoint import DetectionCheckpointer
 from detectron2.config import get_cfg
 from detectron2.engine import launch
-from omegaconf import DictConfig, OmegaConf
+from omegaconf import OmegaConf
 
 
 logging.basicConfig(

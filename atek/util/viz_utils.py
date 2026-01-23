@@ -15,11 +15,9 @@
 
 # pyre-strict
 
-from typing import Dict, List, Optional, Tuple
+from typing import List, Tuple
 
 import numpy as np
-import torch
-from atek.util.tensor_utils import compute_bbox_corners_in_world
 from projectaria_tools.core.calibration import CameraProjection
 from projectaria_tools.core.sophus import SE3
 

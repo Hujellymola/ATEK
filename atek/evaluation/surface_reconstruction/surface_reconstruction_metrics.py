@@ -15,7 +15,7 @@
 import logging
 import os
 import random
-from typing import Dict, Optional
+from typing import Optional
 
 import numpy as np
 import torch

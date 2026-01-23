@@ -18,13 +18,7 @@
 import argparse
 import json
 import logging
-import os
 
-import numpy as np
-import torch
-from atek.evaluation.static_object_detection.eval_obb3_metrics_utils import (
-    print_obb3_metrics_to_logger,
-)
 from atek.evaluation.surface_reconstruction.surface_reconstruction_metrics import (
     evaluate_mesh_over_a_dataset,
     evaluate_single_mesh_pair,

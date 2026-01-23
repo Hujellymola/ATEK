@@ -19,7 +19,6 @@ from typing import Dict, List, Optional
 
 import numpy as np
 import rerun as rr
-import torch
 from atek.data_preprocess.atek_data_sample import (
     AtekDataSample,
     create_atek_data_sample_from_flatten_dict,
@@ -28,7 +27,7 @@ from atek.data_preprocess.atek_data_sample import (
     MultiFrameCameraData,
 )
 from atek.util.tensor_utils import compute_bbox_corners_in_world
-from atek.util.viz_utils import box_points_to_lines, obtain_visible_line_segs_of_obb3
+from atek.util.viz_utils import obtain_visible_line_segs_of_obb3
 from omegaconf.omegaconf import DictConfig
 from projectaria_tools.core.calibration import CameraModelType, CameraProjection
 from projectaria_tools.core.sophus import SE3

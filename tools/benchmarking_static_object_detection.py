@@ -18,10 +18,7 @@
 import argparse
 import json
 import logging
-import os
 
-import numpy as np
-import torch
 from atek.evaluation.static_object_detection.eval_obb3 import (
     evaluate_obb3_for_single_csv_pair,
     evaluate_obb3_over_a_dataset,
