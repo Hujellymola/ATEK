@@ -14,13 +14,11 @@
 
 # pyre-unsafe
 
-import csv
 import logging
 import os
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Dict, Optional
 
 import fsspec
-import numpy as np
 import pandas as pd
 import torch
 from atek.data_loaders.cubercnn_model_adaptor import CubeRCNNModelAdaptor

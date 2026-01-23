@@ -15,8 +15,7 @@
 
 import logging
 import os
-from dataclasses import dataclass, fields
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

@@ -13,17 +13,16 @@
 # limitations under the License.
 
 import logging
-from typing import Callable, List, Optional, Tuple
+from typing import Callable, List, Optional
 
 import numpy as np
 import torch
 from atek.data_preprocess.atek_data_sample import MultiFrameCameraData
 from omegaconf.omegaconf import DictConfig
-from projectaria_tools.core import calibration, data_provider
+from projectaria_tools.core import data_provider
 from projectaria_tools.core.calibration import CameraCalibration
 from projectaria_tools.core.sensor_data import TimeDomain, TimeQueryOptions  # @manual
 from projectaria_tools.core.stream_id import StreamId
-from torchvision.transforms import InterpolationMode, v2
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

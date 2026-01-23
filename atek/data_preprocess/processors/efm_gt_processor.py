@@ -12,12 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import csv
 import logging
 from typing import Dict, List, Optional
 
-import numpy as np
-import torch
 from atek.data_preprocess.processors.obb3_gt_processor import Obb3GtProcessor
 
 logger = logging.getLogger(__name__)

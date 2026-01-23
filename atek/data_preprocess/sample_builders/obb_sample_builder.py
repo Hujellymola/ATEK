@@ -16,11 +16,7 @@ import logging
 from typing import Dict, List, Optional
 
 import torch
-from atek.data_preprocess.atek_data_sample import (
-    AtekDataSample,
-    MpsTrajData,
-    MultiFrameCameraData,
-)
+from atek.data_preprocess.atek_data_sample import AtekDataSample, MpsTrajData
 from atek.data_preprocess.processors.aria_camera_processor import AriaCameraProcessor
 from atek.data_preprocess.processors.mps_traj_processor import MpsTrajProcessor
 from atek.data_preprocess.processors.obb2_gt_processor import Obb2GtProcessor

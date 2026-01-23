@@ -15,7 +15,7 @@
 import logging
 import time
 from collections import defaultdict
-from typing import List, Optional, Tuple, Union
+from typing import List, Optional, Union
 
 import numpy as np
 import pandas as pd

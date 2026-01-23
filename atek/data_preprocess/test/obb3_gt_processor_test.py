@@ -15,7 +15,6 @@
 import os
 import unittest
 
-import numpy as np
 import torch
 from atek.data_preprocess.processors.obb3_gt_processor import Obb3GtProcessor
 from omegaconf import OmegaConf
