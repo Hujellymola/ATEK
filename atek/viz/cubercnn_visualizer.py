@@ -17,6 +17,7 @@
 import logging
 from typing import Dict, List, Optional
 
+import numpy as np
 import rerun as rr
 import torch
 from atek.data_loaders.cubercnn_model_adaptor import CubeRCNNModelAdaptor
@@ -52,7 +53,7 @@ class CubercnnVisualizer(NativeAtekSampleVisualizer):
         timestamp_ns: int,
     ) -> None:
         # Setting timestamp
-        rr.set_time_seconds("frame_time_s", timestamp_ns * 1e-9)
+        rr.set_time("frame_time_s", duration=np.timedelta64(int(timestamp_ns), "ns"))
 
         # Plot image
         # BGR - > RGB, CHW -> HWC

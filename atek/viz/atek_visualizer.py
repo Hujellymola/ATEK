@@ -88,7 +88,10 @@ class NativeAtekSampleVisualizer:
         # Initializing ReRun.
         rr.init(f"ATEK Sample Viewer - {self.viz_prefix}", spawn=not show_on_notebook)
         if viz_web_port is not None:
-            rr.serve(web_port=viz_web_port, ws_port=viz_web_port + 1)
+            _server_uri = rr.serve_grpc()
+            rr.serve_web_viewer(
+                open_browser=False, web_port=viz_web_port, connect_to=_server_uri
+            )
         if show_on_notebook:
             rr.notebook_show()
 
@@ -225,7 +228,9 @@ class NativeAtekSampleVisualizer:
         for i_frame in range(len(camera_data.capture_timestamps_ns)):
             # Setting timestamp
             img_timestamp = camera_data.capture_timestamps_ns[i_frame].item()
-            rr.set_time_seconds("frame_time_s", img_timestamp * 1e-9)
+            rr.set_time(
+                "frame_time_s", duration=np.timedelta64(int(img_timestamp), "ns")
+            )
 
             # Plot image
             # HWC -> CWH
@@ -246,7 +251,7 @@ class NativeAtekSampleVisualizer:
         for i_frame in range(len(mps_traj_data.capture_timestamps_ns)):
             # Setting timestamp
             timestamp = mps_traj_data.capture_timestamps_ns[i_frame].item()
-            rr.set_time_seconds("frame_time_s", timestamp * 1e-9)
+            rr.set_time("frame_time_s", duration=np.timedelta64(int(timestamp), "ns"))
             converted_world_transform = ToTransform3D(SE3(), False)
             converted_world_transform.axis_length = self.AXIS_LENGTH
             # Plot MPS trajectory
@@ -280,7 +285,9 @@ class NativeAtekSampleVisualizer:
             pc_timestamp_ns = mps_semidense_point_data.capture_timestamps_ns[
                 i_frame
             ].item()
-            rr.set_time_seconds("frame_time_s", pc_timestamp_ns * 1e-9)
+            rr.set_time(
+                "frame_time_s", duration=np.timedelta64(int(pc_timestamp_ns), "ns")
+            )
 
             points = mps_semidense_point_data.points_world[i_frame].tolist()
             filtered_points = []
@@ -304,7 +311,7 @@ class NativeAtekSampleVisualizer:
         pass
 
     def plot_obb2_gt(self, gt_dict, timestamp_ns, plot_color, suffix) -> None:
-        rr.set_time_seconds("frame_time_s", timestamp_ns * 1e-9)
+        rr.set_time("frame_time_s", duration=np.timedelta64(int(timestamp_ns), "ns"))
         # Loop over all cameras
         for camera_label, per_cam_dict in gt_dict.items():
             if camera_label not in self.cameras_to_plot:
@@ -367,7 +374,7 @@ class NativeAtekSampleVisualizer:
                 batch_id += 1
 
     def plot_obb3_gt(self, gt_dict, timestamp_ns, plot_color, suffix) -> None:
-        rr.set_time_seconds("frame_time_s", timestamp_ns * 1e-9)
+        rr.set_time("frame_time_s", duration=np.timedelta64(int(timestamp_ns), "ns"))
 
         # clear all boxes
         rr.log(f"world/bb3d_split_{suffix}", rr.Clear(recursive=True))
@@ -468,7 +475,7 @@ class NativeAtekSampleVisualizer:
             "The length of object_dimensions and T_World_Object should be the same"
         )
 
-        rr.set_time_seconds("frame_time_s", timestamp_ns * 1e-9)
+        rr.set_time("frame_time_s", duration=np.timedelta64(int(timestamp_ns), "ns"))
         idx = 0  # id for the box rerun is drawing
         rr.log(f"{camera_label}_image/project3d", rr.Clear(recursive=True))
 
